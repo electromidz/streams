@@ -1,1 +1,3 @@
 # streams
+I will do this app for training Redux and React a few day later I will start a big gaming app 
+Comming Soon ....
