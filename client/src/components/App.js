@@ -1,27 +1,33 @@
 import React from 'react';
-import {BrowserRouter , Route , Link} from 'react-router-dom';
+import {Router , Route , Link} from 'react-router-dom';
 import StreamList from './streams/StreamList';
 import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
 import Header from './Header';
+import history from '../history';
+
+
+// with React Router each component
+// need to be designed to work in isolation
+// fetch it`s own data
 
 
 const App = () => {
   return (
 <div className="ui container">
   
-  <BrowserRouter>
+  <Router history={history}>
   <div>
     <Header />
     <Route path="/" component={StreamList} exact />
     <Route path="/stream/new" component={StreamCreate} />
-    <Route path="/stream/edit" component={StreamEdit} />
+    <Route path="/stream/edit/:id" component={StreamEdit} />
     <Route path="/stream/delete" component={StreamDelete} />
     <Route path="/stream/show" component={StreamShow} />    
   </div>
-  </BrowserRouter>
+  </Router>
 </div>
   );
 }
